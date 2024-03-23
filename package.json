@@ -10,12 +10,13 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "method-override": "^3.0.0"
+    "method-override": "^3.0.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-node": "^4.0.0",
+    "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -24,7 +25,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "prettier": "^2.0.2",
-    "commitizen": "^4.0.3",
+    "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.1.0"
   },
   "scripts": {
@@ -37,7 +38,9 @@
     "analyze": "npm run analyze:lint && npm run analyze:prettier",
     "fix:lint": "eslint --ext .js . --fix",
     "fix:prettier": "prettier --write '**/*.{js,md,json}'",
-    "fix": "npm run fix:lint && npm run fix:prettier"
+    "fix": "npm run fix:lint && npm run fix:prettier",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "config": {
     "commitizen": {
@@ -60,5 +63,6 @@
   ],
   "directories": {
     "doc": "docs"
-  }
+  },
+  "snyk": true
 }
